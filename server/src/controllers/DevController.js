@@ -1,6 +1,7 @@
 const api = require("../services/api");
 const Dev = require("../models/DevSchema");
 const parseStringToArray = require("../utils/parseStringToArray");
+const { findConnections, sendMessage } = require("../websocket");
 
 module.exports = {
   async index(request, response) {
@@ -32,6 +33,13 @@ module.exports = {
           coordinates: [longitude, latitude]
         }
       });
+
+      const sendSocketMessageTo = findConnections(
+        { latitude, longitude },
+        techsArray
+      );
+
+      sendMessage(sendSocketMessageTo, "new-dev", dev);
     }
 
     return response.json(dev);

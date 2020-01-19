@@ -20,7 +20,8 @@ function DevForm({ onSubmit }) {
         console.log(error);
       },
       {
-        timeout: 30000
+        timeout: 30000,
+        enableHighAccuracy: false
       }
     );
   });
