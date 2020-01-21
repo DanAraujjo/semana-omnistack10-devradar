@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "nohoist": [
+    "**/react-scripts",
+    "**/react-scripts/**",
+    "**/@generated",
+    "**/@generated/**"
+  ],
+  "scripts": {
+    "start:server": "yarn workspace server start",
+    "start:web": "concurrently --kill-others \"yarn start:server\" \"yarn workspace web start\"",
+    "start:mobile": "concurrently --kill-others \"yarn start:server\" \"yarn workspace mobile start\"",
+    "start": "concurrently --kill-others \"yarn start:server\" \"yarn workspace web start\" \"yarn workspace mobile start\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  }
+}
