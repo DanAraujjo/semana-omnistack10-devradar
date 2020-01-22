@@ -64,8 +64,6 @@ function Main({ navigation }) {
 
     const { latitude, longitude } = currentRegion;
 
-    console.log(latitude, longitude);
-
     const response = await api.get("/search", {
       params: {
         latitude,

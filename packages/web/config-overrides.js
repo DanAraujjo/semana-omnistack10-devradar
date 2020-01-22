@@ -1,4 +1,8 @@
-const rewireYarnWorkspaces = require("react-app-rewire-yarn-workspaces");
-module.exports = function override(config, env) {
-  return rewireYarnWorkspaces(config, env);
-};
+const { override, addWebpackAlias } = require("customize-cra");
+const path = require("path");
+
+module.exports = override(
+  addWebpackAlias({
+    react: path.resolve(path.join(__dirname, "./node_modules/react"))
+  })
+);

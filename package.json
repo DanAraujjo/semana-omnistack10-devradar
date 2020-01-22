@@ -3,12 +3,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "nohoist": [
-    "**/react-scripts",
-    "**/react-scripts/**",
-    "**/@generated",
-    "**/@generated/**"
-  ],
   "scripts": {
     "start:server": "yarn workspace server start",
     "start:web": "concurrently --kill-others \"yarn start:server\" \"yarn workspace web start\"",
